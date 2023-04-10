@@ -81,7 +81,7 @@
       <hr />
       <p>
         Opciones:
-        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#modalAgregar">
+        <button class="btn btn-outline-primary" id="btnAgregar" >
           <i class="bi bi-file-earmark-plus"></i>
         </button>
       </p>
@@ -207,7 +207,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form>
+              <form id="formAdminPelicula">
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Código</label>
                   <input type="text" class="form-control" id="recipient-name" placeholder="123" disabled>
@@ -251,7 +251,7 @@
                   <input type="text" class="form-control" id="recipient-name" placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black">
                 </div>
                 <div class="justify-content-start">
-                  <button type="button" class="btn btn-primary">Enviar</button>
+                  <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
               </form>
             </div>
