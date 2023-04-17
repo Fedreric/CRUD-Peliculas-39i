@@ -18,7 +18,7 @@ const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
 
 
-let listPeliculas = []
+let listaPeliculas = []
 btnEditar.addEventListener("click", creaePeli);
 btnAgregar.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit",cargarPelicula);
@@ -39,6 +39,15 @@ function cargarPelicula(e){
     e.preventDefault();
     //validar los datos
     let sumario = sumarioValiaciones(titulo.value, descripcion.value,imagen.value,duracion.value,genero.value);
+    //crear las peliculas
+    let pelicula = new Pelicula(titulo.value, descripcion.value,imagen.value,genero.value,anio.value,duracion.value,pais.value,reparto.anio); 
+    listaPeliculas.push(pelicula);
+    //almacenar las pelis en el localStorage
+    // localStorage.setItem('ListaPeliculas',JSON.stringify(listaPeliculas)); // para obj publicos
+    
+    //limpiar formulario
+
+    //cerrar modal
     if(sumario.length === 0){
         console.log('creando pelicula...');
         modalPelicula.hide();
@@ -46,7 +55,4 @@ function cargarPelicula(e){
         mensajeFormulario.className = 'alert alert-danger mt-3'
         mensajeFormulario.innerText = sumario;
     }
-    //crear las peliculas
-    //almacenar las pelis en el localStorage
-    //cerrar modal
 }
