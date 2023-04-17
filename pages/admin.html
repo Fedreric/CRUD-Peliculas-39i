@@ -210,48 +210,55 @@
               <form id="formAdminPelicula">
                 <div class="mb-3">
                   <label for="recipient-name" class="col-form-label">Código</label>
-                  <input type="number" class="form-control" id="recipient-name" placeholder="123" disabled>
+                  <input type="number" class="form-control" id="codigo" placeholder="123" disabled>
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Titulo *</label>
-                  <input type="text" class="form-control" id="recipient-name" minlength="2" maxlength="127" required placeholder="Ej: Robotech">
+                  <!-- <input type="text" class="form-control" id="titulo" minlength="3" maxlength="127" required placeholder="Ej: Robotech"> -->
+                  <input type="text" class="form-control" id="titulo" required placeholder="Ej: Robotech">
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Descripcion *</label>
-                  <input type="text" class="form-control" id="recipient-name" minlength="30" maxlength="1000" required placeholder="Ej: Lorem ipsum dolor sit amet">
+                  <!-- <input type="text" class="form-control" id="descripcion" minlength="20" maxlength="500" required placeholder="Ej: Lorem ipsum dolor sit amet"> -->
+                  <input type="text" class="form-control" id="descripcion" required placeholder="Ej: Lorem ipsum dolor sit amet">
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Imagen *</label>
-                  <input type="text" class="form-control" id="recipient-name" minlength="8" maxlength="100" required placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html">
+                  <!-- <input type="text" class="form-control" id="imagen" minlength="8" maxlength="100" required placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html"> -->
+                  <input type="text" class="form-control" id="imagen" required placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html">
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Genero *</label>
-                  <select class="form-select" aria-label="Elegir Genero" required>
-                    <option selected>Seleccione una opcion</option>
-                    <option value="1">Aventura</option>
-                    <option value="2">Accion</option>
-                    <option value="3">Drama</option>
-                    <option value="4">Terror</option>
+                  <select class="form-select" aria-label="Elegir Genero" id="genero" required>
+                    <option selected value="">Seleccione una opcion</option>
+                    <option value="Aventura">Aventura</option>
+                    <option value="Accion">Accion</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Terror">Terror</option>
                   </select>
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Año</label>
-                  <input type="number" class="form-control" id="recipient-name" max="2023" min="1895" placeholder="Ej: 2023">
+                  <input type="number" class="form-control" id="anio" max="2023" min="1895" placeholder="Ej: 2023">
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Duración</label>
-                  <input type="time" class="form-control" id="recipient-name" placeholder="Ej: 93 min">
+                  <!-- <input type="number" class="form-control" id="duracion" max="300" placeholder="Ej: 93 min"> -->
+                  <input type="number" class="form-control" id="duracion" placeholder="Ej: 93 min">
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">País</label>
-                  <input type="text" class="form-control" id="recipient-name" minlength="4" maxlength="22" placeholder="Ej: Argentina">
+                  <input type="text" class="form-control" id="pais" minlength="4" maxlength="22" placeholder="Ej: Argentina">
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Reparto <span class="text-muted text-sm">(Cada actor separado por ,)</span></label>
-                  <input type="text" class="form-control" id="recipient-name" minlength="6" maxlength="1000" placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black">
+                  <input type="text" class="form-control" id="reparto" minlength="6" maxlength="1000" placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black">
                 </div>
                 <div class="justify-content-start">
                   <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+                <div class="alert alert-danger mt-3 d-none" id="mensajeFormulario"role="alert">
+                  A simple danger alert—check it out!
                 </div>
               </form>
             </div>
