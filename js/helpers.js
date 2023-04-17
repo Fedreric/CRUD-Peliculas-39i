@@ -1,14 +1,6 @@
-export function cantidadCaracteres(texto, min, max) {
-    if (texto.length >= min && texto.length <= max) {
-        console.log("cantidad caracteres correcto")
-        return true;
-    }else{
-        console.log("cantidad caracteres incorrecto")
-        return false;
-    }
-}
+//agregar validacion del anio (anio actual + 1)
 
-export function sumarioValiaciones (titulo,descripcion,imagen,duracion){
+export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero){
     let resumen = '';
 
     if(!cantidadCaracteres(titulo,3,127)){
@@ -23,6 +15,9 @@ export function sumarioValiaciones (titulo,descripcion,imagen,duracion){
     if(!validarUrlImagenes(imagen)){
         resumen += 'Corregir url de la imagen\n'
     }
+    if(!validarGenero(genero)){
+        resumen += 'Seleccione un genero en la lista de generos\n'
+    }
 
     if(resumen.length !== 0){
         return resumen;
@@ -30,6 +25,16 @@ export function sumarioValiaciones (titulo,descripcion,imagen,duracion){
         return '';
     }
 
+}
+
+function cantidadCaracteres(texto, min, max) {
+    if (texto.length >= min && texto.length <= max) {
+        console.log("cantidad caracteres correcto")
+        return true;
+    }else{
+        console.log("cantidad caracteres incorrecto")
+        return false;
+    }
 }
 
 function validarDuracion(value){
@@ -49,6 +54,16 @@ function validarUrlImagenes(value){
         return true;
     }else{
         console.log('No paso la exprecion regular');
+        return false;
+    }
+}
+
+function validarGenero (texto){
+    if(texto.length > 0 && (texto === 'Aventura' || texto === 'Accion' || texto === 'Drama' || texto === 'Terror')){
+        console.log('Genero valido');
+        return true;
+    }else{
+        console.log('Genero invalido');
         return false;
     }
 }
