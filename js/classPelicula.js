@@ -21,67 +21,43 @@ export default class Pelicula {
         this.#reparto = reparto;
         this.#estado = false;
     }
-    // getters
-    getCodigo() {
-        return this.#codigo;
-    }
-    getTitulo() {
-        return this.#titulo;
-    }
-    getDescripcion() {
-        return this.#descripcion;
-    }
-    getImagen() {
-        return this.#imagen;
-    }
-    getGenero() {
-        return this.#genero;
-    }
-    getAnio() {
-        return this.#anio;
-    }
-    getDuracion() {
-        return this.#duracion;
-    }
-    getPais() {
-        return this.#pais;
-    }
-    getReparto() {
-        return this.#reparto;
-    }
-    getEstado() {
-        return this.#estado;
-    }
 
+    // getters
+    get codigo() { return this.#codigo; }
+    get titulo() { return this.#titulo ; }
+    get descripcion() { return this.#descripcion; }
+    get imagen() { return this.#imagen; }
+    get genero() { return this.#genero; }
+    get anio() { return this.#anio; }
+    get duracion() { return this.#duracion; }
+    get pais() { return this.#pais; }
+    get reparto() { return this.#reparto; }
+    get estado() { return this.#estado; }
+    
     // setters
-    setCodigo(codigo) {
-        this.#codigo = codigo;
-    }
-    setTitulo(titulo) {
-        this.#titulo = titulo;
-    }
-    setDescripcion(descripcion) {
-        this.#descripcion = descripcion;
-    }
-    setImagen(imagen) {
-        this.#imagen = imagen;
-    }
-    setGenero(genero) {
-        this.#genero = genero;
-    }
-    setAnio(anio) {
-        this.#anio = anio;
-    }
-    setDuracion(duracion) {
-        this.#duracion = duracion;
-    }
-    setPais(pais) {
-        this.#pais = pais;
-    }
-    setReparto(reparto) {
-        this.#reparto = reparto;
-    }
-    setEstado(estado) {
-        this.#estado = estado;
+    set codigo(newCodigo) { this.#codigo = newCodigo; }
+    set titulo(newTitulo) { this.#titulo = newTitulo; }
+    set descripcion(newDescripcion) { this.#descripcion = newDescripcion; }
+    set imagen(newImagen) { this.#imagen = newImagen; }
+    set genero(newGenero) {this.#genero = newGenero; }
+    set anio(newAnio) { this.#anio = newAnio; }
+    set duracion(newDuracion) { this.#duracion = newDuracion; }
+    set pais(newPais) { this.#pais = newPais; }
+    set reparto(newReparto) { this.#reparto = newReparto; }
+    set estado(newEstado) { this.#estado =  newEstado; }
+
+    toJSON(){
+        return{
+            codigo: this.codigo,
+            titulo: this.titulo,
+            descripcion: this.descripcion,
+            imagen: this.imagen,
+            genero: this.genero,
+            anio: this.anio,
+            duracion: this.duracion,
+            pais: this.pais,
+            reparto: this.reparto,
+            estado: this.estado
+        }
     }
 }
