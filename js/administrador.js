@@ -35,7 +35,7 @@ function mostrarModalPelicula() {
 function cargarPelicula(e) {
     e.preventDefault();
     //validar los datos
-    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, parseInt(anio.value));
+    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, parseInt(anio.value), pais.value,reparto.value);
     //cerrar modal
     if (sumario.length === 0) {
         console.log('creando pelicula...');

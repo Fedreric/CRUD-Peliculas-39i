@@ -1,6 +1,6 @@
 //agregar validacion del anio (anio actual + 1)
 
-export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero,anio){
+export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero,anio,pais,reparto){
     let resumen = '';
 
     if(!cantidadCaracteres(titulo,3,127)){
@@ -21,7 +21,13 @@ export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero,a
     if(!validarAnio(anio)){
         resumen += 'Año invalido, debe ser entre 1895 y 2025\n'
     }
-
+    if(!validarPais(pais)){
+        resumen += 'Pais invalido, selecciona uno de la lista\n'
+    }
+    if(!cantidadCaracteres(reparto,0,500)){
+        resumen += 'Corregir el campo de Reparto, debe contener menos de 500 caracteres, re cuerda separar los nombres por comas\n'
+    }
+    
     if(resumen.length !== 0){
         return resumen;
     }else{
@@ -77,6 +83,17 @@ function validarAnio (anio){
         return true;
     }else{
         console.log('El año es invalido');
+        return false;
+    }
+}
+
+function validarPais (texto){
+    if(texto.length > 0 && (texto === 'Argentina' || texto === 'Belice' || texto === 'Bolivia' || texto === 'Brasil' || texto === 'Chile' || texto === 'Colombia' || texto === 'Costa Rica' || texto === 'Cuba' || texto === 'Dominica' || texto === 'Ecuador' || texto === 'El Salvador' || texto === 'Guatemala' || texto === 'Guyana' || texto === 'Haití' || texto === 'Honduras' || texto === 'Jamaica' || texto === 'México' || texto === 'Nicaragua' || texto === 'Panamá' || texto === 'Paraguay' || texto === 'Perú' || texto === 'Puerto Rico' || texto === 'República Dominicana' || texto === 'Surinam' || texto === 'Trinidad y Tobago' || texto === 'Uruguay' || texto === 'Venezuela')
+    ){
+        console.log('Pais valido');
+        return true;
+    }else{
+        console.log('Pais invalido');
         return false;
     }
 }
