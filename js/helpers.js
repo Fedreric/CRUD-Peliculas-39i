@@ -1,6 +1,6 @@
 //agregar validacion del anio (anio actual + 1)
 
-export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero){
+export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero,anio){
     let resumen = '';
 
     if(!cantidadCaracteres(titulo,3,127)){
@@ -17,6 +17,9 @@ export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero){
     }
     if(!validarGenero(genero)){
         resumen += 'Seleccione un genero en la lista de generos\n'
+    }
+    if(!validarAnio(anio)){
+        resumen += 'Año invalido, debe ser entre 1895 y 2025\n'
     }
 
     if(resumen.length !== 0){
@@ -64,6 +67,16 @@ function validarGenero (texto){
         return true;
     }else{
         console.log('Genero invalido');
+        return false;
+    }
+}
+
+function validarAnio (anio){
+    if(anio >= 1895 && anio <= 2025){
+        console.log('El año es valido');
+        return true;
+    }else{
+        console.log('El año es invalido');
         return false;
     }
 }
