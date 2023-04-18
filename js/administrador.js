@@ -1,5 +1,5 @@
 import Pelicula from "./classPelicula.js";
-import {sumarioValiaciones} from "./helpers.js";
+import { sumarioValiaciones } from "./helpers.js";
 const btnEditar = document.getElementById("btnEditar");
 const btnAgregar = document.getElementById("btnAgregar");
 const formularioPelicula = document.getElementById("formAdminPelicula");
@@ -17,36 +17,46 @@ const pais = document.getElementById("pais");
 const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
 
+//esto funciona solo si el objeto pelicula no necesita acceder a metodos
+let listaPeliculas = JSON.parse(localStorage.getItem('ListaPeliculas')) || [];
 
-let listPeliculas = []
 btnEditar.addEventListener("click", creaePeli);
 btnAgregar.addEventListener("click", mostrarModalPelicula);
-formularioPelicula.addEventListener("submit",cargarPelicula);
-//creae una nueva peli
-let nuevaPeli = new Pelicula('Super mari','descripcion','url','aventura',2023,'2hs','EEUU','-');
+formularioPelicula.addEventListener("submit", cargarPelicula);
 
-
-
-function creaePeli(){
-    console.log(nuevaPeli);
+function creaePeli() {
+    console.log('Ingresa a editar');
 }
 
-function mostrarModalPelicula(){
+function mostrarModalPelicula() {
     modalPelicula.show();
 }
 
-function cargarPelicula(e){
+function cargarPelicula(e) {
     e.preventDefault();
     //validar los datos
-    let sumario = sumarioValiaciones(titulo.value, descripcion.value,imagen.value,duracion.value,genero.value);
-    if(sumario.length === 0){
+    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, parseInt(anio.value), pais.value,reparto.value);
+    //cerrar modal
+    if (sumario.length === 0) {
         console.log('creando pelicula...');
+        //crear las peliculas
+        let pelicula = new Pelicula(titulo.value, descripcion.value, imagen.value, genero.value,anio.value, duracion.value, pais.value, reparto.value);
+        listaPeliculas.push(pelicula);
+        //almacenar las pelis en el localStorage
+        guardarEnLocalStorage();
+        //limpiar formulario
+        limpiarFormularioPeliculas();
         modalPelicula.hide();
-    }else{
+    } else {
         mensajeFormulario.className = 'alert alert-danger mt-3'
         mensajeFormulario.innerText = sumario;
     }
-    //crear las peliculas
-    //almacenar las pelis en el localStorage
-    //cerrar modal
+}
+
+function guardarEnLocalStorage() {
+    localStorage.setItem('ListaPeliculas', JSON.stringify(listaPeliculas));
+}
+
+function limpiarFormularioPeliculas() {
+    formularioPelicula.reset();
 }

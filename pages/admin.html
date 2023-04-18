@@ -81,7 +81,7 @@
       <hr />
       <p>
         Opciones:
-        <button class="btn btn-outline-primary" id="btnAgregar" >
+        <button class="btn btn-outline-primary" id="btnAgregar">
           <i class="bi bi-file-earmark-plus"></i>
         </button>
       </p>
@@ -120,7 +120,7 @@
             <tr>
               <th scope="row">2</th>
               <td class="text-truncate">Ant-Man and The Wasp:Quantumania</td>
-              <td class="text-truncate" >
+              <td class="text-truncate">
                 Scott Lang y Hope Van Dyne, junto con Hank Pym y Janet Van Dyne,
                 exploran el Reino Cuántico, donde interactúan con extrañas
                 criaturas y se embarcan en una aventura que va más allá de los
@@ -199,37 +199,81 @@
           </tbody>
         </table>
       </section>
-      <section class="modal fade" id="modalAgregar" tabindex="-1" aria-labelledby="agregarModalLabel" aria-hidden="true">
+      <section
+        class="modal fade"
+        id="modalAgregar"
+        tabindex="-1"
+        aria-labelledby="agregarModalLabel"
+        aria-hidden="true"
+      >
         <article class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="agregarModalLabel">Administrar Serie</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h1 class="modal-title fs-5" id="agregarModalLabel">
+                Administrar Serie
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
             <div class="modal-body">
               <form id="formAdminPelicula">
                 <div class="mb-3">
-                  <label for="recipient-name" class="col-form-label">Código</label>
-                  <input type="number" class="form-control" id="codigo" placeholder="123" disabled>
+                  <label for="recipient-name" class="col-form-label"
+                    >Código</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="codigo"
+                    placeholder="123"
+                    disabled
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Titulo *</label>
                   <!-- <input type="text" class="form-control" id="titulo" minlength="3" maxlength="127" required placeholder="Ej: Robotech"> -->
-                  <input type="text" class="form-control" id="titulo" required placeholder="Ej: Robotech">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="titulo"
+                    required
+                    placeholder="Ej: Robotech"
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Descripcion *</label>
                   <!-- <input type="text" class="form-control" id="descripcion" minlength="20" maxlength="500" required placeholder="Ej: Lorem ipsum dolor sit amet"> -->
-                  <input type="text" class="form-control" id="descripcion" required placeholder="Ej: Lorem ipsum dolor sit amet">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="descripcion"
+                    required
+                    placeholder="Ej: Lorem ipsum dolor sit amet"
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Imagen *</label>
                   <!-- <input type="text" class="form-control" id="imagen" minlength="8" maxlength="100" required placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html"> -->
-                  <input type="text" class="form-control" id="imagen" required placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="imagen"
+                    required
+                    placeholder="Ej: http://127.0.0.1:5500/pages/administrador.html"
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Genero *</label>
-                  <select class="form-select" aria-label="Elegir Genero" id="genero" required>
+                  <select
+                    class="form-select"
+                    aria-label="Elegir Genero"
+                    id="genero"
+                    required
+                  >
                     <option selected value="">Seleccione una opcion</option>
                     <option value="Aventura">Aventura</option>
                     <option value="Accion">Accion</option>
@@ -239,25 +283,87 @@
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Año</label>
-                  <input type="number" class="form-control" id="anio" max="2023" min="1895" placeholder="Ej: 2023">
+                  <!-- <input type="number" class="form-control" id="anio" max="2023" min="1895" placeholder="Ej: 2023"> -->
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="anio"
+                    placeholder="Ej: 2023"
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Duración</label>
                   <!-- <input type="number" class="form-control" id="duracion" max="300" placeholder="Ej: 93 min"> -->
-                  <input type="number" class="form-control" id="duracion" placeholder="Ej: 93 min">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="duracion"
+                    placeholder="Ej: 93 min"
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">País</label>
-                  <input type="text" class="form-control" id="pais" minlength="4" maxlength="22" placeholder="Ej: Argentina">
+                  <select class="form-select" aria-label="Elegir País" id="pais">
+                    <option selected value="">Seleccione una opción</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Belice">Belice</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Dominica">Dominica</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Haití">Haití</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="México">México</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Perú">Perú</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Surinam">Surinam</option>
+                    <option value="Trinidad y Tobago">Trinidad y Tobago</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                  </select>
                 </div>
                 <div class="mb-3">
-                  <label class="col-form-label">Reparto <span class="text-muted text-sm">(Cada actor separado por ,)</span></label>
-                  <input type="text" class="form-control" id="reparto" minlength="6" maxlength="1000" placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black">
+                  <label class="col-form-label"
+                    >Reparto
+                    <span class="text-muted text-sm"
+                      >(Cada actor separado por ,)</span
+                    ></label
+                  >
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                    id="reparto"
+                    minlength="6"
+                    maxlength="1000"
+                    placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black"
+                  /> -->
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="reparto"
+                    placeholder="Ej: Chris Pratt, Anya Taylor-Joy, Charlie Day, Jack Black"
+                  />
                 </div>
                 <div class="justify-content-start">
                   <button type="submit" class="btn btn-primary">Enviar</button>
                 </div>
-                <div class="alert alert-danger mt-3 d-none" id="mensajeFormulario"role="alert">
+                <div
+                  class="alert alert-danger mt-3 d-none"
+                  id="mensajeFormulario"
+                  role="alert"
+                >
                   A simple danger alert—check it out!
                 </div>
               </form>
@@ -275,6 +381,7 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/administrador.js" type="module"></script>
   </body>
