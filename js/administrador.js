@@ -18,7 +18,7 @@ const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
 
 
-btnEditar.addEventListener("click", creaePeli);
+// btnEditar.addEventListener("click", creaePeli);
 btnAgregar.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", cargarPelicula);
 
@@ -36,18 +36,18 @@ cargaInicial();
 function cargaInicial(){
     if(listaPeliculas.length > 0){
         //dibuja la tabla
-        listaPeliculas.map((pelicula)=> crearFila(pelicula))
+        listaPeliculas.map((pelicula,indice)=> crearFila(pelicula,indice))
     }else{
         // dejar la tabla vacia
     }
 }
 
-function crearFila(pelicula){
+function crearFila(pelicula,indice){
     //aqui dibujo el TR
     let datosTabla = document.querySelector('tbody');
     datosTabla.innerHTML += `
     <tr>
-        <th scope="row">1</th>
+        <th scope="row">${indice+1}</th>
         <td class="text-truncate">${pelicula.titulo}</td>
         <td class="text-truncate">${pelicula.descripcion}</td>
         <td class="text-truncate">
