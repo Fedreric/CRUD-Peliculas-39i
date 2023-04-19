@@ -58,7 +58,7 @@ function crearFila(pelicula, indice) {
         <button type="button" class="btn btn-warning">
             <i class="bi bi-pencil-square" id="btnEditar"></i>
         </button>
-        <button type="button" class="btn btn-danger">
+        <button type="button" class="btn btn-danger" onclick = "borrarPelicula()";>
             <i class="bi bi-x-square"></i>
         </button>
         </td>
@@ -111,3 +111,11 @@ function guardarEnLocalStorage() {
 function limpiarFormularioPeliculas() {
     formularioPelicula.reset();
 }
+
+// function borrarPelicula(){
+//     console.log('se ingresa a borrar pelicula');
+// }
+
+window.borrarPelicula = () => {
+    console.log('se ingresa a borrar pelicula');
+};
