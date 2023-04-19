@@ -19,6 +19,7 @@ const mensajeFormulario = document.getElementById("mensajeFormulario");
 
 //esto funciona solo si el objeto pelicula no necesita acceder a metodos
 let listaPeliculas = JSON.parse(localStorage.getItem('ListaPeliculas')) || [];
+console.log(listaPeliculas);
 
 btnEditar.addEventListener("click", creaePeli);
 btnAgregar.addEventListener("click", mostrarModalPelicula);
@@ -35,7 +36,7 @@ function mostrarModalPelicula() {
 function cargarPelicula(e) {
     e.preventDefault();
     //validar los datos
-    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, parseInt(anio.value), pais.value,reparto.value);
+    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, anio.value, pais.value,reparto.value);
     //cerrar modal
     if (sumario.length === 0) {
         console.log('creando pelicula...');

@@ -9,7 +9,7 @@ export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero,a
     if(!cantidadCaracteres(descripcion,20,500)){
         resumen += 'Corregir la cantidad de caracteres de la descripcion, 20 a 500\n'
     }
-    if(!validarDuracion(duracion)){
+    if(duracion.length !== 0 && !validarDuracion(duracion)){
         resumen += 'Corregir la duracion, debe ser un numero de 3 digitos\n'
     }
     if(!validarUrlImagenes(imagen)){
@@ -18,13 +18,13 @@ export function sumarioValiaciones (titulo,descripcion,imagen,duracion, genero,a
     if(!validarGenero(genero)){
         resumen += 'Seleccione un genero en la lista de generos\n'
     }
-    if(!validarAnio(anio)){
+    if(anio.length !== 0 && !validarAnio(anio)){
         resumen += 'Año invalido, debe ser entre 1895 y 2025\n'
     }
-    if(!validarPais(pais)){
+    if(pais.length !== 0 && !validarPais(pais)){
         resumen += 'Pais invalido, selecciona uno de la lista\n'
     }
-    if(!cantidadCaracteres(reparto,0,500)){
+    if(reparto.length !== 0 && !cantidadCaracteres(reparto,0,500)){
         resumen += 'Corregir el campo de Reparto, debe contener menos de 500 caracteres, re cuerda separar los nombres por comas\n'
     }
     
@@ -78,7 +78,8 @@ function validarGenero (texto){
 }
 
 function validarAnio (anio){
-    if(anio >= 1895 && anio <= 2025){
+    const anioActual = new Date().getFullYear();
+    if(anio >= 1895 && (anio <= anioActual + 1)){
         console.log('El año es valido');
         return true;
     }else{
