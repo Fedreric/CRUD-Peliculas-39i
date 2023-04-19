@@ -33,21 +33,21 @@ if (!listaPeliculas) {
 }
 console.log(listaPeliculas);
 cargaInicial();
-function cargaInicial(){
-    if(listaPeliculas.length > 0){
+function cargaInicial() {
+    if (listaPeliculas.length > 0) {
         //dibuja la tabla
-        listaPeliculas.map((pelicula,indice)=> crearFila(pelicula,indice))
-    }else{
+        listaPeliculas.map((pelicula, indice) => crearFila(pelicula, indice))
+    } else {
         // dejar la tabla vacia
     }
 }
 
-function crearFila(pelicula,indice){
+function crearFila(pelicula, indice) {
     //aqui dibujo el TR
     let datosTabla = document.querySelector('tbody');
     datosTabla.innerHTML += `
     <tr>
-        <th scope="row">${indice+1}</th>
+        <th scope="row">${indice + 1}</th>
         <td class="text-truncate">${pelicula.titulo}</td>
         <td class="text-truncate">${pelicula.descripcion}</td>
         <td class="text-truncate">
@@ -88,6 +88,16 @@ function cargarPelicula(e) {
         //limpiar formulario
         limpiarFormularioPeliculas();
         modalPelicula.hide();
+        //dibujar la fila
+        let indicePeli = listaPeliculas.length - 1;
+        crearFila(pelicula, indicePeli);
+        //mostar un cartel al usuario que creo la peli correctamente
+        Swal.fire(
+            'Pelicula creada!',
+            'La pelicula: ' + pelicula.titulo + ' fue guardada con exito.',
+            'success'
+        )
+
     } else {
         mensajeFormulario.className = 'alert alert-danger mt-3'
         mensajeFormulario.innerText = sumario;
