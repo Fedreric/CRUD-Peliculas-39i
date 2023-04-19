@@ -17,13 +17,21 @@ const pais = document.getElementById("pais");
 const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
 
-//esto funciona solo si el objeto pelicula no necesita acceder a metodos
-let listaPeliculas = JSON.parse(localStorage.getItem('ListaPeliculas')) || [];
-console.log(listaPeliculas);
 
 btnEditar.addEventListener("click", creaePeli);
 btnAgregar.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", cargarPelicula);
+
+//esto funciona solo si el objeto pelicula no necesita acceder a metodos
+// let listaPeliculas = JSON.parse(localStorage.getItem('ListaPeliculas')) || [];
+let listaPeliculas = localStorage.getItem('ListaPeliculas');
+
+if (!listaPeliculas) {
+    listaPeliculas = [];
+} else {
+    listaPeliculas = JSON.parse(listaPeliculas).map((pelicula) => { return new Pelicula(pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.reparto) })
+}
+console.log(listaPeliculas);
 
 function creaePeli() {
     console.log('Ingresa a editar');
@@ -36,12 +44,12 @@ function mostrarModalPelicula() {
 function cargarPelicula(e) {
     e.preventDefault();
     //validar los datos
-    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, anio.value, pais.value,reparto.value);
+    let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, anio.value, pais.value, reparto.value);
     //cerrar modal
     if (sumario.length === 0) {
         console.log('creando pelicula...');
         //crear las peliculas
-        let pelicula = new Pelicula(titulo.value, descripcion.value, imagen.value, genero.value,anio.value, duracion.value, pais.value, reparto.value);
+        let pelicula = new Pelicula(titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, reparto.value);
         listaPeliculas.push(pelicula);
         //almacenar las pelis en el localStorage
         guardarEnLocalStorage();
