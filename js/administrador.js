@@ -32,6 +32,38 @@ if (!listaPeliculas) {
     listaPeliculas = JSON.parse(listaPeliculas).map((pelicula) => { return new Pelicula(pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.reparto) })
 }
 console.log(listaPeliculas);
+cargaInicial();
+function cargaInicial(){
+    if(listaPeliculas.length > 0){
+        //dibuja la tabla
+        listaPeliculas.map((pelicula)=> crearFila(pelicula))
+    }else{
+        // dejar la tabla vacia
+    }
+}
+
+function crearFila(pelicula){
+    //aqui dibujo el TR
+    let datosTabla = document.querySelector('tbody');
+    datosTabla.innerHTML += `
+    <tr>
+        <th scope="row">1</th>
+        <td class="text-truncate">${pelicula.titulo}</td>
+        <td class="text-truncate">${pelicula.descripcion}</td>
+        <td class="text-truncate">
+        ${pelicula.imagen}
+        </td>
+        <td>${pelicula.genero}</td>
+        <td>
+        <button type="button" class="btn btn-warning">
+            <i class="bi bi-pencil-square" id="btnEditar"></i>
+        </button>
+        <button type="button" class="btn btn-danger">
+            <i class="bi bi-x-square"></i>
+        </button>
+        </td>
+    </tr>`
+}
 
 function creaePeli() {
     console.log('Ingresa a editar');
