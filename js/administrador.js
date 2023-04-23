@@ -98,10 +98,13 @@ function cargarPelicula(e) {
             'La pelicula: ' + pelicula.titulo + ' fue guardada con exito.',
             'success'
         )
-
+        mensajeFormulario.className = 'alert alert-danger mt-3 d-none';
     } else {
         mensajeFormulario.className = 'alert alert-danger mt-3'
         mensajeFormulario.innerText = sumario;
+        setTimeout(() => {
+            mensajeFormulario.className = 'alert alert-danger mt-3 d-none';
+        },4000);
     }
 }
 
