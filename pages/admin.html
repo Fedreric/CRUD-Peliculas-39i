@@ -150,8 +150,8 @@
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Descripcion *</label>
-                  <textarea name="descripcion" id="descripcion" class="form-control"  cols="30" rows="10" required placeholder="Ej: Descripcion breve del argumento principal de la pelicula."></textarea>
-                  <p id="contadorCaracteresDesc">0</p>
+                  <textarea name="descripcion" id="descripcion" class="form-control"  cols="30" rows="8" required placeholder="Ej: Descripcion breve del argumento principal de la pelicula." oninput="contadorCaracteresDesc()" minlength="20" maxlength="500"></textarea>
+                  <p id="contadorCaracteresDesc">500</p>
                 </div>
                 <div class="mb-3">
                   <label class="col-form-label">Imagen *</label>

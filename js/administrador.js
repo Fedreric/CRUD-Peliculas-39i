@@ -16,6 +16,7 @@ const duracion = document.getElementById("duracion");
 const pais = document.getElementById("pais");
 const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
+const contadorCaracteresDesc = document.getElementById('contadorCaracteresDesc');
 
 
 // btnEditar.addEventListener("click", creaePeli);
@@ -112,6 +113,11 @@ function limpiarFormularioPeliculas() {
     formularioPelicula.reset();
 }
 
+window.contadorCaracteresDesc = () =>{
+    let contador = 500;
+    let texto = descripcion.value;
+    contadorCaracteresDesc.innerHTML = `${contador - texto.length}`
+};
 // function borrarPelicula(){
 //     console.log('se ingresa a borrar pelicula');
 // }
