@@ -12,3 +12,9 @@ main{
 
 .cuadro { border: 1px blue dotted ;padding: 10px 5px; }
 
+textarea {
+    resize: none;
+}
+#contadorCaracteresDesc{
+ text-align: end;
+}
