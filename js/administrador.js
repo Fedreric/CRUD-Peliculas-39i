@@ -30,7 +30,7 @@ let listaPeliculas = localStorage.getItem('ListaPeliculas');
 if (!listaPeliculas) {
     listaPeliculas = [];
 } else {
-    listaPeliculas = JSON.parse(listaPeliculas).map((pelicula) => { return new Pelicula(pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.reparto) })
+    listaPeliculas = JSON.parse(listaPeliculas).map((pelicula) => { return new Pelicula(pelicula.codigo, pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.reparto) })
 }
 console.log(listaPeliculas);
 cargaInicial();
@@ -59,7 +59,7 @@ function crearFila(pelicula, indice) {
         <button type="button" class="btn btn-warning">
             <i class="bi bi-pencil-square" id="btnEditar"></i>
         </button>
-        <button type="button" class="btn btn-danger" onclick = "borrarPelicula()";>
+        <button type="button" class="btn btn-danger" onclick = "borrarPelicula('${pelicula.codigo}')";>
             <i class="bi bi-x-square"></i>
         </button>
         </td>
@@ -82,7 +82,7 @@ function cargarPelicula(e) {
     if (sumario.length === 0) {
         console.log('creando pelicula...');
         //crear las peliculas
-        let pelicula = new Pelicula(titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, reparto.value);
+        let pelicula = new Pelicula(undefined, titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, reparto.value);
         listaPeliculas.push(pelicula);
         //almacenar las pelis en el localStorage
         guardarEnLocalStorage();
@@ -104,7 +104,7 @@ function cargarPelicula(e) {
         mensajeFormulario.innerText = sumario;
         setTimeout(() => {
             mensajeFormulario.className = 'alert alert-danger mt-3 d-none';
-        },4000);
+        }, 4000);
     }
 }
 
@@ -116,7 +116,7 @@ function limpiarFormularioPeliculas() {
     formularioPelicula.reset();
 }
 
-window.contadorCaracteresDesc = () =>{
+window.contadorCaracteresDesc = () => {
     let contador = 500;
     let texto = descripcion.value;
     contadorCaracteresDesc.innerHTML = `${contador - texto.length}`
@@ -125,6 +125,6 @@ window.contadorCaracteresDesc = () =>{
 //     console.log('se ingresa a borrar pelicula');
 // }
 
-window.borrarPelicula = () => {
-    console.log('se ingresa a borrar pelicula');
+window.borrarPelicula = (codigo) => {
+    console.log(codigo, typeof (codigo));
 };

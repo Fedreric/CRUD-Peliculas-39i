@@ -14,7 +14,7 @@ cargaInicial();
 function cargaInicial() {
     if (listaPeliculas.length > 0) {
         //dibuja la tabla
-        listaPeliculas.map((pelicula, indice) => crearFila(pelicula, indice))
+        listaPeliculas.map((pelicula, indice) => crearFila(pelicula))
     } else {
         let contenederPeliculas = document.getElementById('contenederPeliculas');
         contenederPeliculas.innerHTML += `
@@ -23,7 +23,7 @@ function cargaInicial() {
     }
 }
 
-function crearFila(pelicula, indice) {
+function crearFila(pelicula) {
     //aqui dibujo el TR
     let contenederPeliculas = document.getElementById('contenederPeliculas');
     contenederPeliculas.innerHTML += `
