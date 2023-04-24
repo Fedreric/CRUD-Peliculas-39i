@@ -127,4 +127,15 @@ window.contadorCaracteresDesc = () => {
 
 window.borrarPelicula = (codigo) => {
     console.log(codigo, typeof (codigo));
+    //busco en el array de pelicula, la peli que quiero borrar con el codigo
+    let posicionPeli = listaPeliculas.findIndex(pelicula => pelicula.codigo === codigo);
+    console.log(posicionPeli);
+    //borrar del array la peli
+    listaPeliculas.splice(posicionPeli,1);
+    //igualar los datos del local storage
+    guardarEnLocalStorage();
+    //quitar la fila de la tabla
+    let datosTabla = document.querySelector('tbody');
+    // console.log(datosTabla.children[posicionPeli]);
+    datosTabla.removeChild(datosTabla.children[posicionPeli]);
 };
