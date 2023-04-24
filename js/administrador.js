@@ -18,8 +18,6 @@ const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
 const contadorCaracteresDesc = document.getElementById('contadorCaracteresDesc');
 
-
-// btnEditar.addEventListener("click", creaePeli);
 btnAgregar.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", cargarPelicula);
 
@@ -56,8 +54,8 @@ function crearFila(pelicula, indice) {
         </td>
         <td>${pelicula.genero}</td>
         <td>
-        <button type="button" class="btn btn-warning">
-            <i class="bi bi-pencil-square" id="btnEditar"></i>
+        <button type="button" class="btn btn-warning" onclick = "editarPelicula('${pelicula.codigo}')";>
+            <i class="bi bi-pencil-square" id="btnEditar" ></i>
         </button>
         <button type="button" class="btn btn-danger" onclick = "borrarPelicula('${pelicula.codigo}')";>
             <i class="bi bi-x-square"></i>
@@ -121,9 +119,6 @@ window.contadorCaracteresDesc = () => {
     let texto = descripcion.value;
     contadorCaracteresDesc.innerHTML = `${contador - texto.length}`
 };
-// function borrarPelicula(){
-//     console.log('se ingresa a borrar pelicula');
-// }
 
 window.borrarPelicula = (codigo) => {
     Swal.fire({
@@ -159,3 +154,18 @@ window.borrarPelicula = (codigo) => {
         }
     })
 };
+
+window.editarPelicula = (codigoPeli) => {
+    const pelicula = listaPeliculas.find(pelicula => pelicula.codigo === codigoPeli)
+    modalPelicula.show();
+    //completar los datos en el modal
+    codigo.value = pelicula.codigo;
+    titulo.value = pelicula.titulo;
+    descripcion.value = pelicula.descripcion;
+    imagen.value = pelicula.imagen;
+    genero.value = pelicula.genero;
+    anio.value = pelicula.anio;
+    duracion.value = pelicula.duracion;
+    pais.value = pelicula.pais;
+    reparto.value = pelicula.reparto;
+}
