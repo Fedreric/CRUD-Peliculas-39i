@@ -44,7 +44,12 @@ git clone https://github.com/Fedreric/CRUD-Peliculas-39i.git
 ```
 
 ## Sitio Web 💻
-[Link para testeo](crud-peliculas-39i-test.netlify.app)
+https://crud-peliculas-39i-test.netlify.app/index.html
+<hr>
+
+> **Nota**
+> Todos los datos de películas que se utilizaron para las pruebas y el desarrollo de la página web fueron obtenidos a través de esta página: https://www.filmaffinity.com/ar/main.html
+
 ### Autor 👨‍🦱
 
 + Federico Luciano Ledesma [GitHub](https://github.com/Fedreric)
