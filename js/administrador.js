@@ -17,6 +17,7 @@ const pais = document.getElementById("pais");
 const reparto = document.getElementById("reparto");
 const mensajeFormulario = document.getElementById("mensajeFormulario");
 const contadorCaracteresDesc = document.getElementById('contadorCaracteresDesc');
+let estadoPelicula = true; // true CREAR false EDITAR
 
 btnAgregar.addEventListener("click", mostrarModalPelicula);
 formularioPelicula.addEventListener("submit", cargarPelicula);
@@ -73,6 +74,16 @@ function mostrarModalPelicula() {
 }
 
 function cargarPelicula(e) {
+    if (estadoPelicula) {
+        //creo la peli
+        crearPelicula();
+    } else {
+        //peli
+        actualizarPelicula();
+    }
+}
+
+function crearPelicula() {
     e.preventDefault();
     //validar los datos
     let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, anio.value, pais.value, reparto.value);
@@ -168,4 +179,40 @@ window.editarPelicula = (codigoPeli) => {
     duracion.value = pelicula.duracion;
     pais.value = pelicula.pais;
     reparto.value = pelicula.reparto;
+    //cambiar el estado de la variable bandera
+    estadoPelicula = false;
+}
+
+function actualizarPelicula(){
+    //validar los datos
+    //necesito la pelicula que estoy editando
+    let posicionPelicula = listaPeliculas.findIndex(peli => peli.codigo === codigo.value)
+    //actualizar las propiedades de esa pelicula
+    listaPeliculas[posicionPelicula].titulo = titulo.value;
+    listaPeliculas[posicionPelicula].descripcion = descripcion.value;
+    listaPeliculas[posicionPelicula].imagen = imagen.value;
+    listaPeliculas[posicionPelicula].genero = genero.value;
+    listaPeliculas[posicionPelicula].anio = anio.value;
+    listaPeliculas[posicionPelicula].duracion = duracion.value;
+    listaPeliculas[posicionPelicula].pais = pais.value;
+    listaPeliculas[posicionPelicula].reparto = reparto.value;
+    //actualizar el localstorage
+    guardarEnLocalStorage();
+    //mostrar un msj
+    Swal.fire(
+        "Pelicula Editada",
+        "La pelicula seleccionada fue editada corrrectamente",
+        "success"
+    );
+    //se vea en la tabla
+    let datosTablaPelicula = document.querySelector('tbody');
+    datosTablaPelicula.children[posicionPelicula].children[1].innerText = titulo.value;
+    datosTablaPelicula.children[posicionPelicula].children[2].innerText = descripcion.value;
+    datosTablaPelicula.children[posicionPelicula].children[3].innerText = imagen.value;
+    datosTablaPelicula.children[posicionPelicula].children[4].innerText = genero.value;
+    //limpiar el formulario
+    limpiarFormularioPeliculas();
+    //cerrar el modal
+    modalPelicula.hide();
+    estadoPelicula = true;
 }
