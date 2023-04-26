@@ -5,7 +5,7 @@ let listaPeliculas = localStorage.getItem('ListaPeliculas');
 if (!listaPeliculas) {
     listaPeliculas = [];
 } else {
-    listaPeliculas = JSON.parse(listaPeliculas).map((pelicula) => { return new Pelicula(undefined,pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.reparto) })
+    listaPeliculas = JSON.parse(listaPeliculas).map((pelicula) => { return new Pelicula(pelicula.codigo,pelicula.titulo, pelicula.descripcion, pelicula.imagen, pelicula.genero, pelicula.anio, pelicula.duracion, pelicula.pais, pelicula.reparto) })
 }
 
 console.log(listaPeliculas);
@@ -34,9 +34,16 @@ function crearFila(pelicula) {
           <h5 class="card-title">${pelicula.titulo}</h5>
         </div>
         <div class="card-footer">
-            <a href="pages/detalles.html" class="btn btn-primary">Ver mas</a>
+            <button class="btn btn-primary" onClick = 'detallePelicula("${pelicula.codigo}")'>Ver mas</button>
         </div>
       </div>
     </article>
     `
+}
+
+window.detallePelicula = (codigo) => {
+    // console.log(codigo);
+    // console.log(window.location);
+    // console.log(window.location.origin + '/pages/detalles.html?codigo='+codigo);
+    window.location.href = window.location.origin + '/pages/detalles.html?codigo='+codigo;
 }
