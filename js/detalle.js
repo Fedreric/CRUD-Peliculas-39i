@@ -3,8 +3,9 @@ console.log(window.location.search);
 const parametroCodigo = new URLSearchParams(window.location.search);
 console.log(parametroCodigo.get('codigo'));
 //buscar la pelicula 
-let listaPelicula = JSON.parse(localStorage.getItem('listaPelicula')) || [];
-const peliBuscada = listaPelicula.find((pelicula) => pelicula.codigo === parametroCodigo.get('codigo'));
+let listaPeliculas = JSON.parse(localStorage.getItem('ListaPeliculas')) || [];
+console.log(listaPeliculas);
+const peliBuscada = listaPeliculas.find(pelicula => pelicula.codigo === parametroCodigo.get('codigo'));
 console.log(peliBuscada);
 //mostrar los datos de la peli
 const detalle = document.getElementById('contenedorDetalle');

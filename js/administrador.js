@@ -74,6 +74,7 @@ function mostrarModalPelicula() {
 }
 
 function cargarPelicula(e) {
+    e.preventDefault();
     if (estadoPelicula) {
         //creo la peli
         crearPelicula();
@@ -84,7 +85,6 @@ function cargarPelicula(e) {
 }
 
 function crearPelicula() {
-    e.preventDefault();
     //validar los datos
     let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, anio.value, pais.value, reparto.value);
     //cerrar modal
