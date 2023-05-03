@@ -93,6 +93,9 @@ function crearPelicula() {
         //crear las peliculas
         let pelicula = new Pelicula(undefined, titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, reparto.value);
         listaPeliculas.push(pelicula);
+        console.log(pelicula);
+        console.log(listaPeliculas);
+
         //almacenar las pelis en el localStorage
         guardarEnLocalStorage();
         //limpiar formulario
