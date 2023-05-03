@@ -74,6 +74,7 @@ function mostrarModalPelicula() {
 }
 
 function cargarPelicula(e) {
+    e.preventDefault();
     if (estadoPelicula) {
         //creo la peli
         crearPelicula();
@@ -84,7 +85,6 @@ function cargarPelicula(e) {
 }
 
 function crearPelicula() {
-    e.preventDefault();
     //validar los datos
     let sumario = sumarioValiaciones(titulo.value, descripcion.value, imagen.value, duracion.value, genero.value, anio.value, pais.value, reparto.value);
     //cerrar modal
@@ -93,6 +93,9 @@ function crearPelicula() {
         //crear las peliculas
         let pelicula = new Pelicula(undefined, titulo.value, descripcion.value, imagen.value, genero.value, anio.value, duracion.value, pais.value, reparto.value);
         listaPeliculas.push(pelicula);
+        console.log(pelicula);
+        console.log(listaPeliculas);
+
         //almacenar las pelis en el localStorage
         guardarEnLocalStorage();
         //limpiar formulario
